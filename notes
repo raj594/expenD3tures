@@ -1,0 +1,16 @@
+notes
+
+ - add modal for expenses once logged in (jun)
+ - members section page (jun)
+ - authentication (scott)
+ - decide visualization format
+ - figure out d3 (robert)
+ - figure out routing/controlling scheme
+ - public/js/member.js (jun)
+ - public/css 
+ - bootstrap 3>4 upgrade (scott)
+ -- admin account for everything
+ - README.md
+
+
+ * remember changes for controller/routes might be necessary in server.js
