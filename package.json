@@ -17,6 +17,7 @@
     "express-session": "^1.15.6",
     "express-validator": "*",
     "multer": "*",
+    "mysql": "^2.15.0",
     "mysql2": "^1.5.0",
     "passport": "*",
     "passport-http": "*",
