@@ -10,6 +10,10 @@ router.get("/register", function(req, res) {
 	res.render("register")
 });
 
+router.get("/members", function(req, res) {
+	res.render("members")
+});
+
 router.get("/login", function(req, res) {
 	res.render("login")
 });

@@ -12,6 +12,18 @@ var userController = require("./controllers/userController.js");
 var app = express();
 var PORT = 3000;
 
+var mysql = require("mysql");
+
+var connection = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "userauth"
+});
+
+
+
+
 var db = require("./models");
 
 //app.use(multer({dest:"./uploads"}));
@@ -20,6 +32,8 @@ app.use(express.static("public"))
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
@@ -49,3 +63,5 @@ db.sequelize.sync({ force:true }).then(function() {
 		console.log("Server started on port " + PORT)
 	});
 });
+
+
