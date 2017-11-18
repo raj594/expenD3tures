@@ -7,24 +7,9 @@ var LocalStrategy = require("passport-local").Strategy
 var multer = require("multer");
 var flash = require("connect-flash");
 
-var userController = require("./controllers/userController.js");
 
 var app = express();
 var PORT = 3000;
-
-var mysql = require("mysql");
-
-var connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "userauth"
-});
-
-
-
-
-var db = require("./models");
 
 //app.use(multer({dest:"./uploads"}));
 
@@ -49,14 +34,43 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
-//app.get("/", function(req, res) {
-//	res.render("index")
-//});
-app.use("/", userController)
-app.use("/user", userController);
-
 //app.use(expressValidator)
 
+
+// Controller model set up
+
+// var userController = require("./controllers/userController.js");
+// app.use("/", userController)
+// app.use("/user", userController);
+
+
+
+
+// would be used without sequelize
+// var mysql = require("mysql");
+
+// var connection = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "",
+//   database: "userauth"
+// });
+
+
+
+// Routes
+// =============================================================
+// require("./routes/apiRoutes.js")(app);
+// require("./routes/customer-api-routes.js")(app);
+require("./routes/html-routes.js")(app);
+require("./routes/user-api-routes.js")(app);
+
+
+
+
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+var db = require("./models");
 
 db.sequelize.sync({ force:true }).then(function() {
 	app.listen(PORT, function() {
