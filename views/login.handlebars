@@ -1,20 +1,21 @@
 {{> layout}}
 
-<div class="page-header">
-    <h1>login</h2>
-</div>
-<p>Please login using the form below</p>
 <div class="container">
+<div class="page-header">
+    <h1>User Login</h2>
+</div>
+<h3>Please login using the form below</h3>
+
 <div class="row">
 <form action="/my-handling-form-page" method="post">
     
-    <div>
+    <div class="input-group">
         <label for="uname">Username:</label>
-        <input type="text" id="uname" name="user_name">
+        <input type="text" class="form-control" id="uname" name="user_name">
     </div>
-    <div>
+    <div class="input-group">
         <label for="msg">Password:</label>
-        <input type="password" id="passowrd" name="password"></input>
+        <input type="password" class="form-control" id="passowrd" name="password"></input>
     </div>
     <button type="button" class="btn btn-primary" value="login">Submit</button>
 

@@ -1,24 +1,25 @@
 {{> layout}}
 
-<p>Please register using the form below</p>
 <div class="container">
+<h3>Please register using the form below</h3>
+
 <div class="row">
 <form action="/my-handling-form-page" method="post">
-    <div>
+    <div class="input-group">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
+        <input type="text" class="form-control" id="name" name="name">
     </div>
-    <div>
+    <div class="input-group">
         <label for="mail">E-mail:</label>
-        <input type="email" id="mail" name="user_mail">
+        <input type="email" class="form-control" id="mail" name="user_mail">
     </div>
-    <div>
+    <div class="input-group">
         <label for="uname">Username:</label>
-        <input type="text" id="uname" name="user_name">
+        <input type="text" class="form-control" id="uname" name="user_name">
     </div>
-    <div>
+    <div class="input-group">
         <label for="msg">Password:</label>
-        <input type="password" id="passowrd" name="password"></input>
+        <input type="password" class="form-control" id="passowrd" name="password"></input>
     </div>
     <button type="button" class="btn btn-primary" value="register">Submit</button>
 
