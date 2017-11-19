@@ -1,9 +1,8 @@
 
 $(function() {
 
-	$("#expense-information").on("click", function(event)
-  }){
-		event.preventDefault();
+	$("#expense-information").on("click", function(event){
+
 		runExpenseQuery();
 	});
 
@@ -15,7 +14,8 @@ $(function() {
         type: "GET"
       })
       .then(function(expenseData) {
-        expenseData.render("d3Visualization", expenseData)
+        console.log("fuck this, testing handlebars it sucks")
+        console.log(expenseData)
       	location.reload();
       });
     }

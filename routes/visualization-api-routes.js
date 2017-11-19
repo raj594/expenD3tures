@@ -14,9 +14,7 @@ module.exports = function(app) {
 		      var hbsObject = {
 		        expense: data
 		      };
-		      console.log(JSON.stringify(hbsObject))
-		      res.json(hbsObject);
-		      // res.render("d3Visualization", hbsObject);
+		      res.render("d3Visualization", hbsObject);
 		    });
 	});
 
