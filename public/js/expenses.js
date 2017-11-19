@@ -2,27 +2,29 @@
 $(function() {
 
 
-	
-$(".create-form").on("submit", function(event) {
+// Take inputs when user completes registration form	
+$(".expense-form").on("submit", function(event) {
 	event.preventDefault();
-	var newUser = {
-		name: $("#name").val().trim()
+	var newExpense = {
+		username: $("#username").val().trim(),
+		expense: $("#expense").val(),
+		expense_category: $("#expenseCategory").val().trim(),
+		expense_value: $("#expenseValue").val(),
+		recurring: $("#recurring").val(),
+		recurring_periodic: $("#recurringPeriodic").val()
 	};
 
-	$.ajax("/login", {
+	$.ajax("/api/newExpense", {
 		type: "POST",
-		data: newUser
+		data: newExpense
 	}).then(
-		function() {
-			console.log("created new user");
+		function(result) {
+			// This console log happens in chrome console
+			console.log(result)
 			location.reload()
 		}
 	);
 });
-
-
-
-
 
 
 });

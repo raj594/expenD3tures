@@ -27,6 +27,10 @@ module.exports = function(app) {
 		res.render("addExpense")
 	});
 
+	app.get("/visualize", function(req, res) {
+		res.render("d3Visualization")
+	});	
+
 	app.get("/login", function(req, res) {
 		res.render("login")
 	});

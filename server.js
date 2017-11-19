@@ -60,10 +60,9 @@ app.use(passport.session())
 
 // Routes
 // =============================================================
-// require("./routes/apiRoutes.js")(app);
-// require("./routes/customer-api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
+require("./routes/expenses-api-routes.js")(app);
 
 
 

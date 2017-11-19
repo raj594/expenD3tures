@@ -11,7 +11,7 @@ $(".create-form").on("submit", function(event) {
 		password: $("#password").val().trim(),
 	};
 	console.log(newUser)
-	$.ajax("/api/new", {
+	$.ajax("/api/newUser", {
 		type: "POST",
 		data: newUser
 	}).then(
