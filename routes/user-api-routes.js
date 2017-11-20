@@ -9,18 +9,18 @@ module.exports = function(app) {
   //index route loads view.html
 
 	app.post("/api/newUser", function(req, res) {
-		db.User.create(req.body).then(function(results){
-			console.log(req.body.password)
-			bcrypt.genSalt(10, function(err, salt) {
-    			bcrypt.hash(req.body.password, salt, function(err, hash) {
-        		 req.body.password = hash
-        		 console.log(hash)
-        		 res.json(results);
-    			});
+
+
+		bcrypt.genSalt(10, function(err, salt) {
+			bcrypt.hash(req.body.password, salt, function(err, hash) {
+			 req.body.password = hash
+			 console.log(hash)
+
+				db.User.create(req.body).then(function(results){
+					res.json(results);
+				});
+				
 			});
-
-
-			
 		});
 	});
 
