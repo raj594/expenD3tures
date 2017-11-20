@@ -11,7 +11,7 @@ module.exports = function(app) {
   //index route loads view.html
 
 	app.post("/api/newUser", function(req, res) {
-
+		
 
 		bcrypt.genSalt(10, function(err, salt) {
 			bcrypt.hash(req.body.password, salt, function(err, hash) {
@@ -28,6 +28,15 @@ module.exports = function(app) {
 
 	
 	app.post('/api/login',
+  		
+		db.getUserById = function(id, callback){
+			User.findBy(id, callback)
+		}
+
+		db.getUserByUsername = function(username, callback) {
+			var query = {username: username};
+			User.findOne(query, callback)
+		}
   		
   		passport.authenticate('local', {failureRedirect:"/login", failureFlash:"Invalid login"}),
   		
