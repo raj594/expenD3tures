@@ -23,6 +23,23 @@ $(".create-form").on("submit", function(event) {
 	);
 });
 
+$(".login-form").on("submit", function(event) {
+	event.preventDefault();
+	var login = {
+		username: $("#uname").val().trim(),
+		password: $("#password").val().trim()
+	};
+	console.log(login)
+	$.ajax("/api/login", {
+		type: "POST",
+		data: login
+	}).then(
+	function(result) {
+		console.log(result)
+		location.reload()
+	}
+	)
+})
 
 
 });
