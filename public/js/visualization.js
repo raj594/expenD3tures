@@ -14,8 +14,7 @@ function runExpenseQuery() {
     type: "GET"
   })
   .then(function(expenseData) {
-    console.log("fuck this, testing handlebars it sucks")
-    console.log(expenseData)
+    console.log(JSON.stringify(expenseData))
   	location.reload();
   });
 }
