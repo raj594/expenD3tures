@@ -1,10 +1,10 @@
 
 $(function() {
 
-	$("#expense-information").on("click", function(event){
-    event.preventDefault();
-		runExpenseQuery();
-	});
+	// $("#expense-information").on("click", function(event){
+ //    event.preventDefault();
+	// 	runExpenseQuery();
+	// });
 
   $(".expense-query-form").on("submit", function(event){
     event.preventDefault();
@@ -19,8 +19,7 @@ $(function() {
       type: "GET",
     })
     .then(function(expenseData) {
-      console.log(JSON.stringify(expenseData))
-    	location.reload();
+    	//location.reload();
     });
   }
 
