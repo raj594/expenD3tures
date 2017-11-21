@@ -20,7 +20,15 @@ module.exports = function(app) {
 	});
 
 	app.get("/members", function(req, res) {
-		res.render("members")
+		db.Expense.findAll({})
+		.then(function(data){
+		  var hbsObject = {
+			expense: data
+		  };
+		  res.render("members", hbsObject);
+		  
+		});
+		
 	});
 
 	app.get("/expense", function(req, res) {
@@ -28,6 +36,7 @@ module.exports = function(app) {
 	});
 
 	app.get("/visualize", function(req, res) {
+
 
 		// // this code finds all expenses from the expense table and renders the d3 page with them as a handlebars object
 		// db.Expense.findAll({})
@@ -37,6 +46,7 @@ module.exports = function(app) {
 		//       };
 		res.render("d3Visualization");
 		//     });
+
 
 	});	
 
