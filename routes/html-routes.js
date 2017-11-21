@@ -20,7 +20,15 @@ module.exports = function(app) {
 	});
 
 	app.get("/members", function(req, res) {
-		res.render("members")
+		db.Expense.findAll({})
+		.then(function(data){
+		  var hbsObject = {
+			expense: data
+		  };
+		  res.render("members", hbsObject);
+		  
+		});
+		
 	});
 
 	app.get("/expense", function(req, res) {
@@ -35,7 +43,8 @@ module.exports = function(app) {
 		      var hbsObject = {
 		        expense: data
 		      };
-		      res.render("d3Visualization", hbsObject);
+			  res.render("d3Visualization", hbsObject);
+			  
 		    });
 
 	});	
