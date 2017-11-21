@@ -2,77 +2,44 @@
 // =============================================================
 
 var db = require("../models");
-var bcrypt = require("bcryptjs");
-var passport = require("passport");
-var LocalStrategy = require("passport-local").Strategy
+var authController = require("../controllers/userController.js")
 // Routes
 // =============================================================
-module.exports = function(app) {
+module.exports = function(app, passport) {
   //index route loads view.html
 
-	app.post("/api/newUser", function(req, res) {
-		
+	//app.post("/api/newUser", function(req, res) {
 
-		bcrypt.genSalt(10, function(err, salt) {
-			bcrypt.hash(req.body.password, salt, function(err, hash) {
-			 req.body.password = hash
-			 console.log(hash)
+	app.get("/register", authController.register)
 
-				db.User.create(req.body).then(function(results){
-					res.json(results);
-				});
-				
-			});
-		});
-	});
+	app.get("/login", authController.login)
 
+	app.post("/register", passport.authenticate("local-signup", 
+	{
+		successRedirect: "/members",
+
+		failureRedirect: "/login"
+	}
+	))
+
+	app.get("/members",isLoggedIn, authController.members)
+
+	app.get("/logout", authController.logout)
+
+
+	app.post("/login", passport.authenticate("local-signin", 
+	{
+		successRedirect: "/members",
+		failureRedirect: "/login"
+	}
+	))
+
+//});
 	
-	app.post('/api/login',
-  		
-		db.getUserById = function(id, callback){
-			User.findBy(id, callback)
-		}
 
-		db.getUserByUsername = function(username, callback) {
-			var query = {username: username};
-			User.findOne(query, callback)
-		}
-  		
-  		passport.authenticate('local', {failureRedirect:"/login", failureFlash:"Invalid login"}),
-  		
-  		function(req, res) {
-    // If this function gets called, authentication was successful.
-    // `req.user` contains the authenticated user.
-    	//res.redirect('/users/' + req.user.username);
-    	req.flash("success", "you are now logged in");
-    	res.redirect("/")
-  	});
-
-	passport.serializeUser(function(user, done) {
-  done(null, user.id);
-});
-
-passport.deserializeUser(function(id, done) {
-  User.getUserById(id, function(err, user) {
-    done(err, user);
-  });
-});
-
-	passport.use(new LocalStrategy(function(username, password, done) {
-		User.getUserByUsername(username, function(err, user){
-			if(err) throw err;
-			if(!user) {
-				return done(null, false, {message:"Unknown user"})
-			}
-			user.comparePassword(password, user.password, function(err, isMatch){
-				if(err) return done(err);
-				if(isMatch){
-					return done(null, user);
-				} else {
-					return done(null, false, {message:"invalid password"})
-				}
-			})
-		})
-	}))
-
-};
+	function isLoggedIn(req, res, next) {
+		if (req.isAuthenticated())
+			return next()
+		res.redirect("/login")
+	}
+}

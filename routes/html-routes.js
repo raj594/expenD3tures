@@ -19,9 +19,9 @@ module.exports = function(app) {
 		res.render("register")
 	});
 
-	app.get("/members", function(req, res) {
-		res.render("members")
-	});
+	//app.get("/members", function(req, res) {
+	//	res.render("members")
+	//});
 
 	app.get("/expense", function(req, res) {
 		res.render("addExpense")
@@ -31,8 +31,8 @@ module.exports = function(app) {
 		res.render("d3Visualization")
 	});	
 
-	app.get("/login", function(req, res) {
-		res.render("login")
-	});
+	//app.get("/login", function(req, res) {
+	//	res.render("login")
+	//});
 
 };

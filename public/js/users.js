@@ -1,48 +1,48 @@
 
-$(function() {
+//$(function() {
 
 // Take inputs when user completes registration form	
-$(".create-form").on("submit", function(event) {
-	event.preventDefault();
-	var newUser = {
-		name: $("#name").val().trim(),
-		email: $("#mail").val().trim(),
-		username: $("#uname").val().trim(),
-		password: $("#password").val().trim(),
-	};
-	console.log(newUser)
-	$.ajax("/api/newUser", {
-		type: "POST",
-		data: newUser
-	}).then(
-		function(result) {
-			// This console log happens in chrome console
-			console.log(result)
-			location.reload()
-		}
-	);
-});
+//$(".create-form").on("submit", function(event) {
+//	event.preventDefault();
+//	var newUser = {
+//		name: $("#name").val().trim(),
+//		email: $("#mail").val().trim(),
+//		username: $("#uname").val().trim(),
+//		password: $("#password").val().trim(),
+//	};
+//	console.log(newUser)
+//	$.ajax("/api/newUser", {
+//		type: "POST",
+//		data: newUser
+//	}).then(
+//		function(result) {
+//			// This console log happens in chrome console
+//			console.log(result)
+//			location.reload()
+//		}
+//	);
+//});
 
-$(".login-form").on("submit", function(event) {
-	event.preventDefault();
-	var login = {
-		username: $("#uname").val().trim(),
-		password: $("#password").val().trim()
-	};
-	console.log(login)
-	$.ajax("/api/login", {
-		type: "POST",
-		data: login
-	}).then(
-	function(result) {
-		console.log(result)
-		location.reload()
-	}
-	)
-})
+//$(".login-form").on("submit", function(event) {
+//	event.preventDefault();
+//	var login = {
+//		username: $("#uname").val().trim(),
+//		password: $("#password").val().trim()
+//	};
+//	console.log(login)
+//	$.ajax("/api/login", {
+//		type: "POST",
+//		data: login
+//	}).then(
+//	function(result) {
+//		console.log(result)
+//		location.reload()
+//	}
+//	)
+//})
 
 
-});
+//});
 
 // $(document).ready(function() {
 // 	// Getting a reference to the input field where user adds a new todo

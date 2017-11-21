@@ -6,7 +6,6 @@ var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy
 var multer = require("multer");
 var flash = require("connect-flash");
-var bcrypt = require("bcryptjs")
 
 
 var app = express();
@@ -26,14 +25,24 @@ app.set("view engine", "handlebars");
 //exphbs.registerPartial("nav", {{"layout"}})
 
 
+//for passport
 app.use(session({
-	secret: "secret",
-	saveUninitialized: true,
-	resave: true
-}));
+	secret: 'keyboard cat',
+	resave: true,
+	saveUninitialized: true
+})); //session secret
+app.use(passport.initialize());
+app.use(passport.session()) //persistant login sessions
 
-app.use(passport.initialize())
-app.use(passport.session())
+
+//app.use(session({
+//	secret: "secret",
+//	saveUninitialized: true,
+//	resave: true
+//}));
+
+//app.use(passport.initialize())
+//app.use(passport.session())
 
 //app.use(expressValidator)
 
@@ -62,9 +71,12 @@ app.use(passport.session())
 // Routes
 // =============================================================
 require("./routes/html-routes.js")(app);
-require("./routes/user-api-routes.js")(app);
+var authRoute = require("./routes/user-api-routes.js")(app, passport);
+//var authRoute = require("./routes/user-api-routes.js")(app);
 require("./routes/expenses-api-routes.js")(app);
 require("./routes/visualization-api-routes.js")(app);
+
+//passport strategies
 
 
 
@@ -72,6 +84,8 @@ require("./routes/visualization-api-routes.js")(app);
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 var db = require("./models");
+require("./config/passport/passport.js")(passport,db.user)
+
 
 db.sequelize.sync().then(function() {
 	app.listen(PORT, function() {
