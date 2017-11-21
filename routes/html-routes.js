@@ -37,15 +37,16 @@ module.exports = function(app) {
 
 	app.get("/visualize", function(req, res) {
 
-		// this code finds all expenses from the expense table and renders the d3 page with them as a handlebars object
-		db.Expense.findAll({})
-			.then(function(data){
-		      var hbsObject = {
-		        expense: data
-		      };
-			  res.render("d3Visualization", hbsObject);
-			  
-		    });
+
+		// // this code finds all expenses from the expense table and renders the d3 page with them as a handlebars object
+		// db.Expense.findAll({})
+		// 	.then(function(data){
+		//       var hbsObject = {
+		//         expense: data
+		//       };
+		res.render("d3Visualization");
+		//     });
+
 
 	});	
 
