@@ -2,26 +2,45 @@
 // =============================================================
 
 var db = require("../models");
-var bcrypt = require("bcryptjs");
+var authController = require("../controllers/userController.js")
 // Routes
 // =============================================================
-module.exports = function(app) {
+module.exports = function(app, passport) {
   //index route loads view.html
 
-	app.post("/api/newUser", function(req, res) {
 
 
-		bcrypt.genSalt(10, function(err, salt) {
-			bcrypt.hash(req.body.password, salt, function(err, hash) {
-			 req.body.password = hash
-			 console.log(hash)
+	app.get("/register", authController.register)
 
-				db.User.create(req.body).then(function(results){
-					res.json(results);
-				});
-				
-			});
-		});
-	});
+	app.get("/login", authController.login)
 
-};
+
+	app.post("/register", passport.authenticate("local-signup", 
+	{
+		successRedirect: "/members",
+
+		failureRedirect: "/login"
+	}
+	))
+
+	app.get("/members",isLoggedIn, authController.members)
+
+	app.get("/logout", authController.logout)
+
+
+	app.post("/login", passport.authenticate("local-signin", 
+	{
+		successRedirect: "/members",
+		failureRedirect: "/login"
+	}
+	))
+
+//});
+	
+
+	function isLoggedIn(req, res, next) {
+		if (req.isAuthenticated())
+			return next()
+		res.redirect("/login")
+	}
+}
