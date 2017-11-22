@@ -10,6 +10,7 @@ module.exports = function(app) {
   //index route loads view.html
 
 	app.get("/api/expenses/:user?", function(req, res) {
+		console.log(req.body)
 		if(req.params.user){
 			var user = req.params.user;
 

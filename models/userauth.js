@@ -62,8 +62,6 @@ module.exports = function(sequelize, Sequelize) {
     });
  
     User.associate = function(models) {
-        // Associating Customers with Burgers
-        // When a Customer eats a burger, the associated custoemr and burger information are displayed in the devoured column
         User.hasMany(models.Expense)
     };
 

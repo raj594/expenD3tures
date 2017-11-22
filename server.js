@@ -36,15 +36,6 @@ app.use(passport.initialize());
 app.use(passport.session()) //persistant login sessions
 
 
-//app.use(session({
-//	secret: "secret",
-//	saveUninitialized: true,
-//	resave: true
-//}));
-
-//app.use(passport.initialize())
-//app.use(passport.session())
-
 //app.use(expressValidator)
 
 
@@ -54,18 +45,6 @@ app.use(passport.session()) //persistant login sessions
 // app.use("/", userController)
 // app.use("/user", userController);
 
-
-
-
-// would be used without sequelize
-// var mysql = require("mysql");
-
-// var connection = mysql.createConnection({
-//   host: "localhost",
-//   user: "root",
-//   password: "",
-//   database: "userauth"
-// });
 
 
 
@@ -85,7 +64,7 @@ require("./routes/visualization-api-routes.js")(app);
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 var db = require("./models");
-require("./config/passport/passport.js")(passport,db.user)
+require("./config/passport/passport.js")(passport,db.User)
 
 
 db.sequelize.sync().then(function() {
