@@ -28,5 +28,13 @@ module.exports = function (sequelize, DataTypes) {
 			type: DataTypes.INTEGER
 		}
 	});
+
+	Expense.associate = function(models) {
+	    Expense.belongsTo(models.User, {
+	    	foriegnKey: "username"
+	    });
+	};
+
+
 	return Expense
 };
