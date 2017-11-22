@@ -10,7 +10,7 @@
 
 module.exports = function(sequelize, Sequelize) {
  
-    var User = sequelize.define('user', {
+    var User = sequelize.define('User', {
  
         id: {
             autoIncrement: true,
@@ -61,6 +61,13 @@ module.exports = function(sequelize, Sequelize) {
  
     });
  
+    User.associate = function(models) {
+        // Associating Customers with Burgers
+        // When a Customer eats a burger, the associated custoemr and burger information are displayed in the devoured column
+        User.hasMany(models.Expense)
+    };
+
+
     return User;
  
 }
