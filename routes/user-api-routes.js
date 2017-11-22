@@ -8,11 +8,12 @@ var authController = require("../controllers/userController.js")
 module.exports = function(app, passport) {
   //index route loads view.html
 
-	//app.post("/api/newUser", function(req, res) {
+
 
 	app.get("/register", authController.register)
 
 	app.get("/login", authController.login)
+
 
 	app.post("/register", passport.authenticate("local-signup", 
 	{

@@ -19,16 +19,24 @@ module.exports = function(app) {
 		res.render("register")
 	});
 
-	//app.get("/members", function(req, res) {
-	//	res.render("members")
-	//});
 
 	app.get("/expense", function(req, res) {
 		res.render("addExpense")
 	});
 
 	app.get("/visualize", function(req, res) {
-		res.render("d3Visualization")
+
+
+		// // this code finds all expenses from the expense table and renders the d3 page with them as a handlebars object
+		// db.Expense.findAll({})
+		// 	.then(function(data){
+		//       var hbsObject = {
+		//         expense: data
+		//       };
+		res.render("d3Visualization");
+		//     });
+
+
 	});	
 
 	//app.get("/login", function(req, res) {
