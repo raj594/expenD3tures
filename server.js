@@ -6,7 +6,8 @@ var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy
 var multer = require("multer");
 var flash = require("connect-flash");
-var bcrypt = require("bcryptjs")
+var bcrypt = require("bcryptjs");
+var d3 = require("d3");
 
 
 var app = express();
