@@ -12,7 +12,7 @@ $(function() {
   // Event handler for the query of a certain users expenses in a d3 pie chart
   $(".expense-query-form").on("submit", function(event){
     event.preventDefault();
-    var user = $("#usernameExpenses").val().trim();
+    var user = $("#usernameExpensesPie").val().trim();
     pieChartQuery(user);
   });
 
@@ -20,7 +20,7 @@ $(function() {
     // Event handler for the query of a certain users expenses in a line graph with net worth on the y axis and time on the x axis
   $(".expense-query-form-line-chart").on("submit", function(event){
     event.preventDefault();
-    var user = $("#usernameExpenses").val().trim();
+    var user = $("#usernameExpensesLine").val().trim();
     lineChartQuery(user);
   });
 
