@@ -30,9 +30,7 @@ module.exports = function (sequelize, DataTypes) {
 	});
 
 	Expense.associate = function(models) {
-	    Expense.belongsTo(models.User, {
-	    	foriegnKey: "username"
-	    });
+	    Expense.belongsTo(models.User)
 	};
 
 
