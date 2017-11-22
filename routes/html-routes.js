@@ -19,17 +19,6 @@ module.exports = function(app) {
 		res.render("register")
 	});
 
-	app.get("/members", function(req, res) {
-		db.Expense.findAll({})
-		.then(function(data){
-		  var hbsObject = {
-			expense: data
-		  };
-		  res.render("members", hbsObject);
-		  
-		});
-		
-	});
 
 	app.get("/expense", function(req, res) {
 		res.render("addExpense")
@@ -50,8 +39,8 @@ module.exports = function(app) {
 
 	});	
 
-	app.get("/login", function(req, res) {
-		res.render("login")
-	});
+	//app.get("/login", function(req, res) {
+	//	res.render("login")
+	//});
 
 };

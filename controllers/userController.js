@@ -1,28 +1,49 @@
-// var express = require("express");
 
-// var router = express.Router();
+var exports = module.exports = {}
 
-// router.get("/", function(req, res) {
-// 	res.render("index")
-// })
+exports.register = function(req, res) {
+	res.render("register")
+}
 
-// router.get("/register", function(req, res) {
-// 	res.render("register")
-// });
+exports.login = function(req, res) {
+	res.render("login")
+}
 
-// router.get("/members", function(req, res) {
-// 	res.render("members")
-// });
+exports.members = function(req, res) {
+	res.render("members")
+}
 
-// router.get("/login", function(req, res) {
-// 	res.render("login")
-// });
+exports.logout = function(req, res) {
+	req.session.destroy(function(err) {
+		res.redirect('/')
+	})
+}
 
-// router.post("/login", function(req, res) {
-// 	console.log(req.body.name)
-// });
+//var express = require("express");
+//
+//var router = express.Router();
+//
+//router.get("/", function(req, res) {
+//	res.render("index")
+//})
+//
+//router.get("/register", function(req, res) {
+//	res.render("register")
+//});
+//
+//router.get("/members", function(req, res) {
+//	res.render("members")
+//});
+//
+//router.get("/login", function(req, res) {
+//	res.render("login")
+//});
+//
+//router.post("/login", function(req, res) {
+//	console.log(req.body.name)
+//});
+//
+//
 
-
-
-
-module.exports = router;
+//
+//module.exports = router;
