@@ -1,22 +1,20 @@
 {{> mainNavBar}}
 
 <div>
-	<h3> we are in d3 visualization tab test</h3>
+	<h3>Visualize your data, bro.</h3>
 
-	<form class="expense-query-form">
+	<form class="create-pie-chart">
 	    <div class="input-group">
-	        <label for="name">Unter your name to display pie chart of expenses</label>
-	        <input type="text" class="form-control" id="usernameExpensesPie" name="username">
+	        <input type="hidden" class="form-control" id="usernameExpensesPie" name="username" value="{{ username}}">
 	    </div>
-	    <button type="submit" class="btn btn-primary" value="register">Show Pie Chart of Expenses</button>
+	    <button type="submit" class="btn btn-primary" value="register">Show Pie Chart of Expenses for {{ username }}</button>
 	</form>
 
-	<form class="expense-query-form-line-chart">
+	<form class="create-line-graph">
 	    <div class="input-group">
-	        <label for="name">Unter your name to display line graph of your finances</label>
-	        <input type="text" class="form-control" id="usernameExpensesLine" name="username">
+	        <input type="hidden" class="form-control" id="usernameExpensesLine" name="username" value="{{ username}}">
 	    </div>
-	    <button type="submit" class="btn btn-primary" value="register">Show Line Graph of Finances</button>
+	    <button type="submit" class="btn btn-primary" value="register">Show Line Graph of recent expenses for {{ username }}</button>
 	</form>
 </div>
 

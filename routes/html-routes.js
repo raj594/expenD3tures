@@ -16,27 +16,19 @@ module.exports = function(app) {
 	})
 
 	app.get("/register", function(req, res) {
+
 		res.render("register")
 	});
 
 
 	app.get("/expense", function(req, res) {
-		res.render("addExpense")
+		var username = req.user.username;
+		res.render("addExpense", {username:  username});
 	});
 
 	app.get("/visualize", function(req, res) {
-
-
-		// // this code finds all expenses from the expense table and renders the d3 page with them as a handlebars object
-		// db.Expense.findAll({})
-		// 	.then(function(data){
-		//       var hbsObject = {
-		//         expense: data
-		//       };
-		res.render("d3Visualization");
-		//     });
-
-
+		var username = req.user.username;
+		res.render("d3Visualization", {username:  username});
 	});	
 
 	//app.get("/login", function(req, res) {

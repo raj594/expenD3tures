@@ -6,7 +6,7 @@ $(function() {
 	$(".expense-form").on("submit", function(event) {
 		event.preventDefault();
 		var newExpense = {
-			user_name: $("#username").val().trim(),
+			user_name: $("#username").val(),
 			expense: $("#expense").val(),
 			expense_category: $("#expenseCategory").val().trim(),
 			expense_value: $("#expenseValue").val(),
