@@ -8,8 +8,8 @@
 	<div class="row">
 		<form action="/my-handling-form-page" class="expense-form" method="post">
 		    <div class="input-group">
-		        <label for="name">User_Name</label>
-		        <input type="text" class="form-control" id="username" name="username">
+		        <label for="name"><h2>Add an Expense {{ username }}</h2></label>
+		        <input type="hidden" class="form-control" id="username" name="username" value="{{ username }}">
 		    </div>
 		    <div class="input-group">
 		        <label for="expense">expense?</label>
