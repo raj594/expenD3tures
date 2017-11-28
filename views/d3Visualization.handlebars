@@ -1,21 +1,31 @@
 {{> mainNavBar}}
 
-<div>
-	<h3>Visualize your data, bro.</h3>
+<div class="container">
+	<div class="row">
+		<h3>Visualize your data, bro.</h3>
+		<p>Click the buttons to show interesting charts</p>
+		<div class="col-md-4">
+		<div class="well">
 
 	<form class="create-pie-chart">
 	    <div class="input-group">
 	        <input type="hidden" class="form-control" id="usernameExpensesPie" name="username" value="{{ username}}">
 	    </div>
-	    <button type="submit" class="btn btn-primary" value="register">Show Pie Chart of Expenses for {{ username }}</button>
+	    <button type="submit" class="btn btn-primary" value="register">Pie Chart of Expenses for {{ username }}</button>
 	</form>
-
+	<br>
 	<form class="create-line-graph">
 	    <div class="input-group">
 	        <input type="hidden" class="form-control" id="usernameExpensesLine" name="username" value="{{ username}}">
 	    </div>
-	    <button type="submit" class="btn btn-primary" value="register">Show Line Graph of recent expenses for {{ username }}</button>
+	    <button type="submit" class="btn btn-primary" value="register">Line Graph of recent expenses for {{ username }}</button>
 	</form>
 </div>
+</div>
+	<div class="col-md-8">
+		<svg width="960" height="500"></svg>
+		</div>
+</div>
+</div>
 
-<svg width="960" height="500"></svg>
+<!-- <svg width="960" height="500"></svg> -->
