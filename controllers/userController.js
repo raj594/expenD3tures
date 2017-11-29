@@ -6,7 +6,18 @@ exports.register = function(req, res) {
 }
 
 exports.login = function(req, res) {
-	res.render("login")
+	var flashMessages = res.locals.getMessages();
+	if (flashMessages.error) {
+		res.render("login", {
+			showErrors: true,
+			errors: flashMessages.error
+		})
+		
+	} else {
+		res.render("login")
+	}
+	
+	
 }
 
 exports.members = function(req, res) {
