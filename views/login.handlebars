@@ -20,6 +20,13 @@
                     <input type="password" name="password" class="form-control" id="password" name="password"></input>
                 </div>
                 <button type="submit" class="btn btn-primary" value="login">Submit</button>
+                {{#showErrors}}
+                    <div class="errors alert alert-danger">
+                        {{#errors}}
+                        <p>{{.}}</p>
+                        {{/errors}}
+                    </div>
+                {{/showErrors}}
             </form>
             </div>
         </div>

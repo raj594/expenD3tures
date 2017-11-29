@@ -3,9 +3,9 @@ var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 var session = require("express-session");
 var passport = require("passport");
-var LocalStrategy = require("passport-local").Strategy
-var multer = require("multer");
-var flash = require("connect-flash");
+//var LocalStrategy = require("passport-local").Strategy
+//var multer = require("multer");
+var flash = require("express-flash-messages");
 var d3 = require("d3");
 
 
@@ -34,6 +34,7 @@ app.use(session({
 })); //session secret
 app.use(passport.initialize());
 app.use(passport.session()) //persistant login sessions
+app.use(flash());
 
 
 //app.use(expressValidator)

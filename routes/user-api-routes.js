@@ -31,8 +31,9 @@ module.exports = function(app, passport) {
 	app.post("/login", passport.authenticate("local-signin", 
 	{
 		successRedirect: "/members",
-		failureRedirect: "/login"
-	}
+		failureRedirect: "/login",
+		failureFlash: true
+	}	
 	))
 
 //});
