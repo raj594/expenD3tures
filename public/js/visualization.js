@@ -10,6 +10,7 @@ $(function() {
   // Event handler for the query of a certain users expenses in a d3 pie chart
   $(".create-pie-chart").on("submit", function(event){
     event.preventDefault();
+    $("#visualizationWell").empty();
     var user = $("#usernameExpensesPie").val().trim();
     pieChartQuery(user);
   });
@@ -18,6 +19,7 @@ $(function() {
     // Event handler for the query of a certain users expenses in a line graph with net worth on the y axis and time on the x axis
   $(".create-line-graph").on("submit", function(event){
     event.preventDefault();
+    $("#visualizationWell").empty();
     var user = $("#usernameExpensesLine").val().trim();
     lineGraphQuery(user);
   });
@@ -49,6 +51,7 @@ $(function() {
     })
     .then(function(expenseData) {
       console.log("line graph query run")
+      console.log(expenseData)
       createLineGraph(expenseData);
     });
   }
