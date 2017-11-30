@@ -1,0 +1,22 @@
+html,
+body {
+	height: 100%;
+}
+
+
+.navbar {
+	margin-bottom: 0px;
+}
+
+
+.jumbotron {
+	background-image: 
+	url('../images/money.jpg');
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	 
+}
+
