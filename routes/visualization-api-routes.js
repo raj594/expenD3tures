@@ -19,7 +19,6 @@ module.exports = function(app) {
 					where: { user_name: user }
 				})
 				.then(function(data){
-					console.log(data)
 					res.json(data);
 				});
 		}
