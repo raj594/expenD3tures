@@ -10,7 +10,7 @@ var d3 = require("d3");
 
 
 var app = express();
-var PORT = 3000;
+var port = process.env.PORT || 3000;
 
 //app.use(multer({dest:"./uploads"}));
 
@@ -69,8 +69,8 @@ require("./config/passport/passport.js")(passport,db.User)
 
 
 db.sequelize.sync().then(function() {
-	app.listen(PORT, function() {
-		console.log("Server started on port " + PORT)
+	app.listen(port, function() {
+		console.log("Server started on port " + port)
 	});
 });
 
