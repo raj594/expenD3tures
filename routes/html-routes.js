@@ -31,6 +31,8 @@ module.exports = function(app) {
 		res.render("d3Visualization", {username:  username});
 	});	
 
+	
+
 	//app.get("/login", function(req, res) {
 	//	res.render("login")
 	//});

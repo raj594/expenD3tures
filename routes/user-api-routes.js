@@ -17,20 +17,20 @@ module.exports = function(app, passport) {
 
 	app.post("/register", passport.authenticate("local-signup", 
 	{
-		successRedirect: "/members",
+		successRedirect: "/home",
 
 		failureRedirect: "/login"
 	}
 	))
 
-	app.get("/members",isLoggedIn, authController.members)
+	app.get("/home",isLoggedIn, authController.home)
 
 	app.get("/logout", authController.logout)
 
 
 	app.post("/login", passport.authenticate("local-signin", 
 	{
-		successRedirect: "/members",
+		successRedirect: "/home",
 		failureRedirect: "/login",
 		failureFlash: true
 	}	
