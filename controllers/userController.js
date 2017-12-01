@@ -20,8 +20,8 @@ exports.login = function(req, res) {
 	
 }
 
-exports.members = function(req, res) {
-	res.render("members")
+exports.home = function(req, res) {
+	res.render("home")
 }
 
 exports.logout = function(req, res) {

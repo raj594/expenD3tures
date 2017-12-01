@@ -1,0 +1,34 @@
+{{> mainNavBar}}
+
+
+<div>
+	<h3> Finance Tracker</h3>
+		
+		<ul>
+
+			{{#each Expenses}}
+			   <li>
+					<p>your name is {{user_name}}</p><br>
+					<p>this expense is ${{expense_value}}</p><br>
+					<p>this expense was for {{expense_category}}</p>
+			   </li>
+			{{/each}}
+			
+		</ul>
+
+		{{!-- <ul>
+		{{#each tasks}}
+			<li>
+			<p>ID: {{this.id}}</p>
+			<p>Task: {{this.task}}</p>
+			</li>
+		{{/each}}
+		</ul> --}}
+
+		<form action="/" method="POST">
+			<textarea type="text" name="task"></textarea>
+
+			<button type="submit">Submit</button>
+		</form>
+</div>
+
