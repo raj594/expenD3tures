@@ -6,33 +6,38 @@
 <!--<h3>Please register using the form below</h3> -->
 
 	<div class="row">
+		<div>
 		<form action="/my-handling-form-page" class="expense-form" method="post">
 		    <div class="input-group">
 		        <label for="name"><h2>Add an Expense {{ username }}</h2></label>
 		        <input type="hidden" class="form-control" id="username" name="username" value="{{ username }}">
 		    </div>
-		    <div class="input-group">
-		        <label for="expense">expense?</label>
-		        <input type="checkbox" class="form-control" id="expense" name="expense" value="true">
-		    </div>
-		    <div class="input-group">
-		        <label for="expense_category">expense_category</label>
-		        <input type="text" class="form-control" id="expenseCategory" name="expenseCategory">
-		    </div>
-		    <div class="input-group">
-		        <label for="expense_value">Expense_value</label>
+		    <div class="col-md-6">
+			<div class="form-group">
+		        <label for="expense_value">Amount</label>
 		        <input type="number" class="form-control" id="expenseValue" name="expenseValue" value="0">
 		    </div>
-		    <div class="input-group">
-		        <label for="recurring">recurring?</label>
-		        <input type="checkbox" class="form-control" id="recurring" name="recurring" value="true">
+		    
+		    <div class="form-group">
+		        <label for="expense_category">Category</label>
+		        <input type="text" class="form-control" id="expenseCategory" name="expenseCategory">
 		    </div>
-		    <div class="input-group">
-		        <label for="recurring_periodic">recurring_periodic</label>
+		    <div class="checkbox">
+		        <label for="expense">
+		        <input type="checkbox" class="checkbox" id="expense" name="expense" value="true">Expense</label>
+		    </div>
+		    <hr>
+		    <div class="form-group">
+		        <label for="recurring_periodic">Recurring</label>
 		        <input type="number" class="form-control" id="recurringPeriodic" name="recurringPeriodic" value="0">
+		    </div>
+		    <div class="checkbox">
+		        <label for="recurring">
+		        <input type="checkbox" class="checkbox" id="recurring" name="recurring" value="true">Recurring</label>
 		    </div>
 		    <button type="submit" class="btn btn-primary" value="register">Submit</button>
 
 		</form>
+		</div>
 	</div>
 </div>
