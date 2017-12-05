@@ -8,12 +8,12 @@ expenD3tures is an expense tracker that utilizes D3.js. D3 helps to bring data t
 
 [expenD3tures](https://rocky-escarpment-61649.herokuapp.com/)
 
-### Screenshots
+## Screenshots
 ![picture of homepage](https://user-images.githubusercontent.com/22949508/33589359-9c6f4856-d93d-11e7-9bf5-6a14b361b2c3.jpg)
 
 ![sample pie chart](https://user-images.githubusercontent.com/22949508/33589430-0554326e-d93e-11e7-85e1-f165412361ff.jpg)
 
-### Technologies Used
+## Technologies Used
 
 * Backend
   * MySQL
@@ -38,7 +38,7 @@ expenD3tures is an expense tracker that utilizes D3.js. D3 helps to bring data t
 * Deployment
   * Heroku
   
-  ### Authors
+  ## Authors
   [Robert Jaynes](https://github.com/raj594) - HTML, Bootstrap, JavaScrip, jQuery, Express, MySQL, Node.js, Sequelize, Passport, D3
   
   [Scott Shampine](https://github.com/sshampine) - HTML, Bootstrap, JavaScrip, jQuery, Express, MySQL, Node.js, Sequelize, Passport, BCrypt, Heroku
